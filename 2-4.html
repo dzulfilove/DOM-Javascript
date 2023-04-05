@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>JavaScript getElementById() Method</title>
+    </head>
+    <body>
+
+        <h1 id="heading">Hello Bro</h1>
+        <h2 id="sub-heading">Hai Bro</h2>
+        <h3 class="sub-sub-heading">Hello World</h3>
+
+        <div id="main">
+            <p class="note">Title</p>
+            <p class="nt">SubTitle</p>
+            <ul class="menu">
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+
+
+
+        <script>
+
+        //Section 2 
+        const h1 = document.getElementById('heading');
+        const h2 = document.getElementsByTagName('h2');
+        const h3 = document.getElementsByClassName('sub-sub-heading');
+
+        console.log(h1);
+        console.log(h2);
+        console.log(h3);
+
+
+        // section3
+
+        let note = document.querySelector('.note');
+        let nextSibling = note.nextSibling;
+        console.log(note.parentNode);
+        console.log(nextSibling);
+
+        let first = document.getElementById('main');
+        console.log(first.firstChild);
+
+        // section 4
+        let div = document.createElement('div');
+        div.id = 'content';
+        div.innerHTML = '<p>Example Create</p>';
+        document.body.appendChild(div);
+
+       
+        function createChild(name){
+            let child = document.createElement('div');
+            child.id = name;
+            child.innerHTML = `<p>${name}</p>`;
+        }
+
+        div.appendChild(child);
+
+        console.log(div.innerHTML);
+
+
+
+        
+        
+        
+        
+        
+        
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contoh Validasi Input Text</title>
+</head>
+<body>
+
+    <!-- Section 7 Validasi -->
+	<form id="myForm">
+		<label for="name">Nama:</label>
+		<input type="text" id="name" name="name"><br><br>
+		<label for="email">Email:</label>
+		<input type="text" id="email" name="email"><br><br>
+        <input type="checkbox" id="agree" name="agree">
+		<label for="agree">Saya setuju dengan syarat dan ketentuan</label><br><br>
+        <label for="product">Produk:</label>
+		<select id="product" name="product">
+			<option value="">Pilih produk</option>
+			<option value="1">Produk 1</option>
+			<option value="2">Produk 2</option>
+			<option value="3">Produk 3</option>
+		</select><br><br>
+		<input type="submit" value="Submit">
+    	</form>
+
+
+        <!-- Section 8 -->
+
+        <ul id="list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 4 <button onclick="deleteItem(this)">Hapus</button></li>
+            <li>Item 5 <button onclick="deleteItem(this)">Hapus</button></li>
+            <li id="item1">Item 1 <button onclick="changeItem()">Ganti</button></li>
+            <li id="item2">Item 2 <button onclick="changeItem()">Ganti</button></li>
+          </ul>
+        
+        <button onclick="addItem()">Tambah Item</button>
+    
+
+
+	<script>
+
+            // Section 7 Validasi
+            let name = document.getElementById("name").value;
+			let email = document.getElementById("email").value;
+			let product = document.getElementById("product").value;
+            let checkbox = document.getElementById("agree");
+            let form = document.getElementById("myForm");
+
+            // Validate name dan email
+    		form.addEventListener("submit", function(event) {
+			event.preventDefault();
+		
+			if (name === "" || email === "") {
+				alert("Nama dan email harus diisi");
+			} else {
+				alert("Form berhasil disubmit");
+			}
+	    	}); 
+
+            //Validate checkbox 
+            form.addEventListener("submit", function(event) {
+			event.preventDefault();
+			if (!checkbox.checked) {
+				alert("Anda harus menyetujui syarat dan ketentuan");
+			} else {
+				alert("Form berhasil disubmit");
+			}
+		    });
+
+            // Validate option
+            form.addEventListener("submit", function(event) {
+			event.preventDefault();
+			if (product === "") {
+				alert("Anda harus memilih produk");
+			} else {
+				alert("Form berhasil disubmit");
+			}
+		});
+
+        let a = form;
+        console.log(a);
+
+
+
+
+    // Section 8
+
+    //Function untuk menambah item 
+      function addItem() {
+      const ul = document.getElementById("list");
+      const li = document.createElement("li");
+      li.textContent = "Item baru";
+      ul.appendChild(li);
+     }
+
+    //  Function untuk menghapus item
+     function deleteItem(button) {
+      const li = button.parentNode;
+      const ul = li.parentNode;
+      ul.removeChild(li);
+    }
+
+    // Function untuk mengubah item
+    function changeItem() {
+      const li = event.target.parentNode;
+      const text = li.firstChild;
+      text.textContent = "Item baru";
+    }
+
+	</script>
+</body>
+</html>
