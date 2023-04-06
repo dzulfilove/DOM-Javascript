@@ -11,47 +11,56 @@
 		<p class="paragraf">Ini adalah paragraf kedua.</p>
 		<p class="paragraf">Ini adalah paragraf ketiga.</p>
 		<button onclick="cariElemen()">Cari elemen dengan class "paragraf"</button>
-		<script>
-			function cariElemen() {
-			  var elems = document.getElementsByClassName("paragraf");
-			  var text = "";
-			  for (var i = 0; i < elems.length; i++) {
-			    text += elems[i].innerHTML + "<br>";
-			  }
-			  document.getElementById("hasil").innerHTML = text;
-			}
-		</script>
 		<p>Hasil pencarian:</p>
 		<p id="hasil"></p>
 	</div>
 	
-	<h2>Section 5: Menambahkan, menghapus, dan mengganti elemen</h2>
+	<h2>Section 5: Menambahkan elemen</h2>
 	<div>
 		<p id="paragraf2">Ini adalah paragraf kedua.</p>
 		<button onclick="tambahElemen()">Tambahkan paragraf</button>
-		<script>
-			function tambahElemen() {
-			  var para = document.createElement("p");
-			  var node = document.createTextNode("Ini adalah paragraf baru.");
-			  para.appendChild(node);
-			  var elem = document.getElementById("paragraf2");
-			  elem.parentNode.insertBefore(para, elem.nextSibling);
-			}
-		</script>
+	
 	</div>
 	
 	<h2>Section 6: Manipulasi style dan atribut elemen</h2>
 	<div>
 		<p id="paragraf3">Ini adalah paragraf ketiga.</p>
 		<button onclick="ubahStyle()">Ubah style</button>
-		<script>
-			function ubahStyle() {
-			  var elem = document.getElementById("paragraf3");
-			  elem.style.color = "red";
-			  elem.style.fontSize = "24px";
-			  elem.style.fontWeight = "bold";
-			}
-		</script>
 	</div>
+
+
+	<script>
+		function cariElemen() {
+		  var elems = document.getElementsByClassName("paragraf");
+		  var text = "";
+		  for (var i = 0; i < elems.length; i++) {
+			text += elems[i].innerHTML + "<br>";
+		  }
+		  document.getElementById("hasil").innerHTML = text;
+		}
+	</script>
+	
+	<script>
+		function tambahElemen() {
+		  var para = document.createElement("p");
+		  var node = document.createTextNode("Ini adalah paragraf baru.");
+		  para.appendChild(node);
+		  var elem = document.getElementById("paragraf2");
+		  elem.parentNode.insertBefore(para, elem.nextSibling);
+		}
+	</script>
+
+	<script>
+		function ubahStyle() {
+		var elem = document.getElementById("paragraf3");
+		elem.style.color = "red";
+		elem.style.fontSize = "24px";
+		elem.style.fontWeight = "bold";
+		}
+	</script>
+
+
+
+
 </body>
 </html>
